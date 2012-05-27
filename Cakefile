@@ -13,10 +13,11 @@ build = (callback) ->
 
 test = (callback) ->
   mocha = spawn "#{__dirname}/node_modules/.bin/mocha", [
+    "--compilers", 'coffee:coffee-script',
     "--reporter", "spec",
     "--colors",
     ("test/#{file}" for file in readdirSync('test') when file.match /\.coffee$/i)
-  ] 
+  ]
   mocha.stdout.pipe process.stdout, end: false
   mocha.stderr.pipe process.stderr, end: false
   mocha.on 'exit', (code) ->

@@ -1,0 +1,8 @@
+{
+  "main": "./test/support/app/index",
+  "css": "./test/support/css/index",
+  "paths": ["./test/support/app"],
+  "dependencies": [
+    "spine"
+  ]
+}

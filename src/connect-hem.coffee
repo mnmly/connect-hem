@@ -1,10 +1,10 @@
-package = require 'hem/lib/package'
+hemPackage = require 'hem/lib/package'
 fs = require 'fs'
 path = require 'path'
 
 module.exports = (config = {}) ->
   
-  options = 
+  options =
     jsPath: '/application.js'
     slug:   './slug.json'
     libs:   []
@@ -19,11 +19,11 @@ module.exports = (config = {}) ->
     slugOptions = JSON.parse(fs.readFileSync options.slug)
     options[key] = value for key, value of slugOptions
 
-  pkg = package.createPackage options
+  pkg = hemPackage.createPackage options
 
   serveJavaScript = (req, res, next) ->
     js = pkg.compile()
-    res.writeHead 200, 
+    res.writeHead 200,
       'Content-Type': 'text/javascript'
       'Content-Length': js.length
     res.end js
@@ -31,7 +31,7 @@ module.exports = (config = {}) ->
 
   # Middleware
   (req, res, next) ->
-    if req.method is 'GET' and req.path is options.jsPath
+    if req.method is 'GET' and req.url is options.jsPath
       return serveJavaScript req, res, next
     next()
 

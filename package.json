@@ -32,9 +32,11 @@
     "hem": "~0.1.6"
   },
   "devDependencies": {
-    "mocha": "*",
-    "coffee-script": "*",
+    "mocha": "~1.0.0",
+    "coffee-script": "~1.3.3",
     "connect": "*",
-    "should": "*"
+    "should": "*",
+    "request": "~2.9.*",
+    "spine": "~1.0.6"
   }
 }

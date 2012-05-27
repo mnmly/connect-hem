@@ -7,7 +7,7 @@ class Request
   constructor: (@app) ->
     @headers = {}
     @data = []
-    @server = @app 
+    @server = @app
     @method = 'get'
     @path = '/'
     @server.listen 0, =>
