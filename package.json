@@ -29,7 +29,7 @@
     }
   ],
   "dependencies": {
-    "hem": "~0.1.6"
+    "hem": "git://github.com/maccman/hem.git#version0_3"
   },
   "devDependencies": {
     "mocha": "~1.0.0",
